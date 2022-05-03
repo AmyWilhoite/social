@@ -1,11 +1,11 @@
 const { ObjectId } = require('mongoose').Types;
-const { Student, Course } = require('../models');
+const { User, Thought, Reaction} = require('../models');
 
-// Aggregate function to get the number of students overall
-const headCount = async () =>
-  Student.aggregate()
-    .count('studentCount')
-    .then((numberOfStudents) => numberOfStudents);
+// Aggregate function to get the number of users/friends overall
+const userCount = async () =>
+  User.aggregate()
+    .count('userCount')
+    .then((numberOfUsers) => numberOfUsers);
 
 // Aggregate function for getting the overall grade using $avg
 const grade = async (studentId) =>
