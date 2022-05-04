@@ -3,7 +3,7 @@ const thoughtSchema = require('./Thought');
 // self reference user schema
 const userSchema = require('./User');
 
-// Schema to create Student model
+// Schema to create User model
 const userSchema = new Schema(
   {
     username: {
@@ -28,6 +28,6 @@ const userSchema = new Schema(
   },
 );
 
-const Student = model('user', userSchema);
+const User = model('user', userSchema);
 
 module.exports = User;
