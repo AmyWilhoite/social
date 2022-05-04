@@ -32,14 +32,14 @@ module.exports = {
           users,
           userCount: await userCount(),
         };
-        return res.json(studentObj);
+        return res.json(userObj);
       })
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
   },
-  // Get a single student
+  // Get a single user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
@@ -56,15 +56,15 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
-  // create a new student
+  // create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-  // Delete a student and remove them from the course
+  // Delete a user and remove them from the course
   deleteUser(req, res) {
-    Student.findOneAndRemove({ _id: req.params.studentId })
+    User.findOneAndRemove({ _id: req.params.userID })
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No such user exists' })
@@ -77,9 +77,9 @@ module.exports = {
       .then((course) =>
         !course
           ? res.status(404).json({
-              message: 'Student deleted, but no courses found',
+              message: 'User deleted, but no courses found',
             })
-          : res.json({ message: 'Student successfully deleted' })
+          : res.json({ message: 'User successfully deleted' })
       )
       .catch((err) => {
         console.log(err);
@@ -100,12 +100,12 @@ module.exports = {
         !user
           ? res
               .status(404)
-              .json({ message: 'No student found with that ID :(' })
+              .json({ message: 'No User found with that ID :(' })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Remove assignment from a student
+  // Remove assignment from a user
   removeAssignment(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
