@@ -6,6 +6,9 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 
 ## Install
 * use node packages
+* use MongoDB and Mongoose
+* npm i
+* npm start
 * use Insomnia to test routes for API POST, PUT, DELETE users (friends) and thoughts
 
 

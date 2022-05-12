@@ -105,8 +105,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // Remove assignment from a user
-  removeAssignment(req, res) {
+  // Remove thought from a user
+  this.removeThought(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { thoughts: { thoughtId: req.params.thoughtId } } },
