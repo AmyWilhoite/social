@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const thoughtSchema = require('./Thought');
 // self reference user schema
-const userSchema = require('./User');
+// const userSchema = require('./User');
 
 // Schema to create User model
 const userSchema = new Schema(
@@ -18,6 +18,7 @@ const userSchema = new Schema(
       unique: true,
       max_length: 50,
     },
+    // need to look at this throwing errors for both
     thought: [thoughtSchema],
     friend: [friendSchema],
   },

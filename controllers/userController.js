@@ -2,10 +2,10 @@ const { ObjectId } = require('mongoose').Types;
 const { User, Thought} = require('../models');
 
 // Aggregate function to get the number of users/friends overall
-// const userCount = async () =>
-//   User.aggregate()
-//     .count('userCount')
-//     .then((numberOfUsers) => numberOfUsers);
+const userCount = async () =>
+  User.aggregate()
+    .count('userCount')
+    .then((numberOfUsers) => numberOfUsers);
 
 // // Aggregate function for getting the overall grade using $avg
 // const grade = async (studentId) =>
@@ -109,7 +109,7 @@ module.exports = {
  removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $pull: { thougfriendshts: { thoughtId: req.params.friendId } } },
+      { $pull: { friends: { thoughtId: req.params.friendId } } },
       { runValidators: true, new: true }
     )
       .then((user) =>

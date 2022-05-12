@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const userSchema = require('./User');
+const Reaction = require ('./Reaction');
 
 // Schema to create a thought model
 const thoughtSchema = new Schema(
@@ -17,16 +19,17 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
-    reactions: [reactionSchema],
+    reactions: [Reaction],
   },
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }
 );
 
-const Thought = model('Thought', thoughtSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
