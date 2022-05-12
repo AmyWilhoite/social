@@ -18,24 +18,31 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   // Create a thought
   createThought (req, res) {
     Thought.create(req.body)
       .then((thought) => {
         // enter create function
         return User.findOneAndUpdate(
-          {_id: req.body.},
+          {_id: req.body.userName},
           { $addToSet: {thoughts: thought._id}},
           { runValidators: true, new: true }
         );
       })
-      .then((user))
-      res.json('thought created 🎉))
+      .then((user) => 
+      !user
+      ? res.status(404).json({ 
+        message: 'No user with that name',
+      })
+      : res.json ('thought created 🎉)')
+      )
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
   },
+
   // Delete a thought
   deleteThought(req, res) {
     thought.findOneAndDelete({ _id: req.params.thoughtID })
