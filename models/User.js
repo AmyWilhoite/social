@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
+const friendSchema = require('./Friend');
+
 // self reference user schema
 // const userSchema = require('./User');
 
@@ -19,8 +20,18 @@ const userSchema = new Schema(
       max_length: 50,
     },
     // need to look at this throwing errors for both
-    thought: [thoughtSchema],
-    friend: [friendSchema],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought',  
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      }
+    ],
   },
   {
     toJSON: {
@@ -28,6 +39,11 @@ const userSchema = new Schema(
     },
   },
 );
+
+userSchema.virtual("friendCount")
+   .get(function(){
+     return this.friends.length;
+   });
 
 const User = model('user', userSchema);
 

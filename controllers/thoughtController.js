@@ -1,4 +1,4 @@
-const { Thought, User } = require('../models');
+const { Thought, User, Reaction } = require('../models');
 
 module.exports = {
   // Get all Thoughts
@@ -68,4 +68,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+
+
+  
 };

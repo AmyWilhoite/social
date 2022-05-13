@@ -10,7 +10,8 @@ const reactionSchema = new Schema(
       type: String,
       required: true,
       max_length: 280,
-      minlength: 1
+      minlength: 1,
+      default: 'my thoughts...'
     },
     username: {
       type: String,
@@ -19,15 +20,15 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      //add getter method to format time
+      // do i need getter?
     },
   },
-  {
-    toJSON: {
-      getters: true,
-    },
-    id: false,
-  }
+  // {
+  //   toJSON: {
+  //     getters: true,
+  //   },
+  //   id: false,
+  // }
 );
 
 module.exports = reactionSchema;
