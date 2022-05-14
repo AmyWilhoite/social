@@ -18,7 +18,8 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 
 
 ## Links
-* Walkthrough Video: https://mysterious-sands-29258.herokuapp.com
+* Walkthrough Video Part 1: https://drive.google.com/file/d/1ahA5vcpz71fdd47kpJsp7Axu0aTvin2X/view
+* Walkthrough Video Part 2: (coming soon!)
 * Repository: https://github.com/AmyWilhoite/social.git
 
 ## License
