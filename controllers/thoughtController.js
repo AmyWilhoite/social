@@ -1,4 +1,4 @@
-const { Thought, User, Reaction } = require('../models');
+const { Thought, User } = require('../models');
 
 module.exports = {
   // Get all Thoughts
@@ -8,16 +8,16 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Get a thought
-  getSingleThought(req, res) {
-    Thought.findOne({ _id: req.params.thoughtID })
-      .select('-__v')
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: 'No thought with that ID' })
-          : res.json(thought)
-      )
-      .catch((err) => res.status(500).json(err));
-  },
+    getSingleThought(req, res) {
+      Thought.findOne({ _id: req.params.thoughtId })
+        .select('-__v')
+        .then((thought) =>
+          !thought
+            ? res.status(404).json({ message: 'No thought with that ID' })
+            : res.json(thought)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
 
   // Create a thought
   createThought (req, res) {
@@ -45,7 +45,7 @@ module.exports = {
 
   // Delete a thought
   deleteThought(req, res) {
-    thought.findOneAndDelete({ _id: req.params.thoughtID })
+    Thought.findOneAndDelete({ _id: req.params.thoughtID })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })

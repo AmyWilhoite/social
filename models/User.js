@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const friendSchema = require('./Friend');
+const thoughtSchema = require('./Thought');
 
 // self reference user schema
 // const userSchema = require('./User');

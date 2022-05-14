@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongoose').Types;
-const { User, Thought} = require('../models');
+const { User, Thought, Reaction} = require('../models');
 
 // Aggregate function to get the number of users/friends overall
 const userCount = async () =>
@@ -62,6 +62,20 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
+  //  update user by id
+  updateUser (req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set:req.body },
+      { runValidators: true, new:true}
+    )
+    .then((user) =>
+    !user? res.status(404).json({ message: 'no user found with this id'})
+    : res.json(user)
+    )
+    .catch((err) => res.status(500).json(err));
+  },
+  
   // Delete a user and remove thoughts
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userID })
@@ -70,12 +84,12 @@ module.exports = {
           ? res.status(404).json({ message: 'No such user exists' })
           : Thought.findOneAndUpdate(
               { user: req.params.userId },
-              { $pull: { users: req.params.useId } },
+              { $pull: { users: req.params.userId } },
               { new: true }
             )
       )
-      .then((course) =>
-        !course
+      .then((thought) =>
+        !thought
           ? res.status(404).json({
               message: 'User deleted, but no thoughts found',
             })
@@ -89,7 +103,7 @@ module.exports = {
 
   // Add a friend to a user 
   addFriend(req, res) {
-    console.log('You are adding a thought');
+    console.log('You are adding a friend');
     console.log(req.body);
     User.findOneAndUpdate(
       { _id: req.params.userId },

@@ -8,14 +8,9 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 * use node packages
 * use MongoDB and Mongoose
 * npm i
-* npm start
+* npm run seed
+* npm run dev
 * use Insomnia to test routes for API POST, PUT, DELETE users (friends) and thoughts
-
-
-## Usage
-* when a user clicks + icon 
-* user can add notes and save them to the database by clicking the save icon
-* saved notes are then stored in the left side bar
 
 
 ## Preview
