@@ -14,7 +14,12 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 
 
 ## Preview
-![ROUTE Tests => NEED NEW SCREENSHOTS.](./Assets/noteTaker.png)
+*  ![getUser](/assets/getUserAll.png)
+*  ![getAllUser](/assets/getUser1.png)
+*  ![postUser](/assets/postUser.png)
+*  ![putUser](/assets/putUser.png)
+*  ![getThoughtsAll](/assets/getThoughtsAll.png)
+*  ![getThought1](/assets/getThought1.png)
 
 
 ## Links
@@ -23,7 +28,11 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 * Repository: https://github.com/AmyWilhoite/social.git
 
 ## License
-  ![Github license](http://img.shields.io/badge/license-MIT-blue.svg)
+  ### ![MIT](https://img.shields.io/badge/license-MIT-green)
+  ### [https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/)
+  
+
+
 
 
 
