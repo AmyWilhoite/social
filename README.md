@@ -29,8 +29,7 @@ This app uses Express for routing, MongoDB (NoSQL) database, and Mongoose ODM to
 
 ## License
   ### ![MIT](https://img.shields.io/badge/license-MIT-green)
-  ### [https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/)
-  
+
 
 
 
